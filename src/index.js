@@ -10,7 +10,6 @@
 
 export default {
 	async fetch(request, env, ctx) {
-		const b =11;
 		const url = new URL(request.url);
 		const path = url.pathname
 		const subscribe = 'https://raw.githubusercontent.com/bonsonjjc/cf/master/routes' + path
