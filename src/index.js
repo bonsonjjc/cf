@@ -13,7 +13,8 @@ export default {
 		const b =11;
 		const url = new URL(request.url);
 		const path = url.pathname
-		const subscribe = 'https://github.com/bonsonjjc/cf/blob/master/routes' + path
+		const subscribe = 'https://raw.githubusercontent.com/bonsonjjc/cf/master/routes' + path
+		
 		const response = await fetch(subscribe);
 		const text = await response.text();
 		return new Response(text, { headers: { 'Content-Type': 'text/plain' } });
