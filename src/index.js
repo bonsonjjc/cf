@@ -11,13 +11,10 @@
 export default {
 	async fetch(request, env, ctx) {
 		const url = new URL(request.url);
-		switch (url.pathname) {
-			case '/message':
-				return new Response('Hello, World!');
-			case '/random':
-				return new Response(crypto.randomUUID());
-			default:
-				return new Response('Not Found', { status: 404 });
-		}
+		const path = url.pathname
+		const subscribe = 'https://github.com/bonsonjjc/cf/blob/master/routes' + path
+		const response = await fetch(subscribe);
+		const text = await response.text();
+		return new Response(text, { headers: { 'Content-Type': 'text/plain' } });
 	},
 };
